@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tantangan Kehidupan — PAI SMK</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef7f0,#fff7e8);color:#26352d}.wrap{max-width:850px;margin:auto;padding:18px 14px 40px}.card{background:#fff;border-radius:22px;padding:28px;box-shadow:0 10px 30px rgba(30,55,40,.10);margin-top:15px}.hero{text-align:center;padding:34px 22px}.icon{font-size:62px}h1,h2{color:#246b45}.tag{display:inline-block;background:#e8f3eb;color:#246b45;padding:8px 13px;border-radius:999px;font-weight:bold;font-size:14px}.small{font-size:13px;color:#66736e}.tip{background:#f4f8f5;border-left:5px solid #3d8b5d;padding:13px 15px;border-radius:11px;line-height:1.5}.btn{border:0;border-radius:13px;padding:12px 18px;font-weight:bold;margin:5px;cursor:pointer;font:inherit}.primary{background:#246b45;color:white}.top{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{text-align:center;background:#f3f7f4;padding:11px;border-radius:14px}.stat b{display:block;font-size:20px;margin-top:3px}.progress{height:9px;background:#e5ebe7;border-radius:99px;overflow:hidden;margin:12px 0 22px}.bar{height:100%;background:#3d8b5d;width:0;transition:.3s}.option{display:block;width:100%;text-align:left;border:2px solid transparent;background:#f5f8f5;padding:14px;border-radius:13px;margin:8px 0;color:#26352d;cursor:pointer;font:inherit}.option:hover:not(:disabled){border-color:#79a98a;background:#eef7f0}.option:disabled{cursor:default}.option.correct{background:#e6f5e9;border-color:#3d9658}.option.wrong{background:#fdeaea;border-color:#d35b5b}.feedback{padding:15px;border-radius:13px;margin-top:14px;line-height:1.55}.good{background:#eaf7ed}.bad{background:#fff0f0}.hidden{display:none!important}.result{text-align:center}.score{font-size:48px;font-weight:bold;color:#246b45}.reflect{background:#fff9ed;border-left:5px solid #c89a3d;padding:15px;border-radius:11px;line-height:1.55}@media(max-width:600px){.card{padding:20px}.hero{padding:28px 17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section id="start" class="card hero">
+<div class="icon">🎯</div><span class="tag">PAI SMK • Kelas X • Topik 3</span>
+<h1>TANTANGAN KEHIDUPAN</h1><p><b>Apa yang akan kamu lakukan?</b></p>
+<p>Sifat tercela kadang muncul melalui kebiasaan kecil dalam kehidupan sehari-hari. Baca setiap situasi, pikirkan pilihanmu, lalu tentukan tindakan yang paling tepat sebagai seorang muslim.</p>
+<div class="tip"><b>🎮 Cara bermain:</b> Ada 5 situasi. Pilih satu jawaban A–E. Setelah memilih, kamu akan mendapatkan feedback dan pembahasan.</div>
+<p class="small">5 tantangan • 5 pilihan jawaban • belajar dari situasi nyata</p>
+<button class="btn primary" onclick="startGame()">🎯 MULAI TANTANGAN</button>
+</section>
+
+<section id="game" class="card hidden">
+<div class="top"><div class="stat">🎯 Tantangan <b><span id="num">1</span>/5</b></div><div class="stat">⭐ Skor <b id="score">0</b></div></div>
+<div class="progress"><div id="bar" class="bar"></div></div>
+<p class="small" id="topic"></p><h2 id="question"></h2><p class="small"><b>Pilih tindakan yang paling tepat.</b></p>
+<div id="options"></div><div id="feedback" class="feedback hidden"></div>
+<div style="text-align:right;margin-top:14px"><button id="next" class="btn primary hidden" onclick="nextQuestion()">➡️ LANJUT</button></div>
+</section>
+
+<section id="result" class="card result hidden">
+<div class="icon">🏁</div><h1>Tantangan Selesai!</h1><p>Skor kamu:</p><div class="score"><span id="finalScore">0</span>/5</div>
+<h2 id="resultTitle"></h2><p id="resultMessage"></p>
+<div class="reflect"><b>💭 Cermin Diri</b><br><br>Situasi mana yang paling sering kamu temui dalam kehidupan sehari-hari?<br><br><strong>✍️ Tuliskan satu kebiasaan yang ingin kamu perbaiki mulai hari ini.</strong></div>
+<br><button class="btn primary" onclick="startGame()">🔄 COBA LAGI</button>
+</section>
+</div>
+<script>
+const questions=[
+{topic:"💰 TANTANGAN 1 — IKUT TREN",q:"Kamu mempunyai uang Rp150.000 untuk kebutuhan selama seminggu. Teman-temanmu sedang ramai membeli aksesori yang sedang viral. Harganya Rp120.000. Kamu sebenarnya tidak membutuhkannya, tetapi takut dianggap tidak mengikuti tren. Apa yang sebaiknya kamu lakukan?",a:["Tetap membeli agar tidak ketinggalan tren.","Meminjam uang agar bisa membeli.","Membeli karena semua teman juga membeli.","Mempertimbangkan kebutuhan dan menggunakan uang dengan bijak.","Meminta orang tua memberikan uang tambahan."],c:3,exp:"Pilihan D paling tepat. Islam mengajarkan kita menggunakan harta secara bijak dan menghindari isrāf. Tidak semua sesuatu yang sedang tren harus kita miliki."},
+{topic:"👀 TANTANGAN 2 — POSTING KEBAIKAN",q:"Kamu membantu seorang teman yang sedang kesulitan. Setelah itu kamu ingin mengunggah foto dan cerita tentang bantuan tersebut ke media sosial supaya banyak orang tahu bahwa kamu sudah membantu. Sebelum memposting, apa yang sebaiknya kamu tanyakan kepada dirimu?",a:["Berapa banyak orang yang akan menyukai postinganku?","Apakah orang lain akan menganggapku baik?","Apakah aku akan mendapatkan banyak komentar?","Apakah niatku benar dan apakah postingan ini memang bermanfaat?","Apakah teman-temanku akan membagikannya?"],c:3,exp:"Pilihan D paling tepat. Berbagi pengalaman positif tidak otomatis berarti riya’. Yang perlu dijaga adalah niat dan tujuan. Jangan sampai kebaikan berubah menjadi sarana mencari pujian."},
+{topic:"👑 TANTANGAN 3 — PRESTASI",q:"Kamu mendapatkan nilai ujian tertinggi di kelas. Seorang teman yang nilainya rendah meminta bantuan agar bisa belajar lebih baik. Apa yang paling tepat dilakukan?",a:["Menolak karena takut dia mengalahkanmu.","Membantunya belajar dan tetap rendah hati.","Mengatakan bahwa dia memang tidak sepintar kamu.","Memamerkan nilai agar teman-teman mengagumimu.","Menyembunyikan cara belajar agar tetap menjadi yang terbaik."],c:1,exp:"Pilihan B paling tepat. Prestasi adalah nikmat Allah yang seharusnya membuat kita bersyukur, bukan takabbur. Kemampuan kita juga dapat digunakan untuk membantu orang lain."},
+{topic:"💚 TANTANGAN 4 — TEMAN MENDAPAT BEASISWA",q:"Temanmu mendapatkan beasiswa. Kamu sebenarnya juga ingin mendapatkannya. Dalam hati muncul perasaan tidak senang dan berharap dia gagal mempertahankan beasiswa tersebut. Apa yang sebaiknya kamu lakukan?",a:["Membicarakan kekurangannya kepada teman lain.","Berharap beasiswanya dicabut.","Mengucapkan selamat, mendoakannya, lalu menjadikan keberhasilannya sebagai motivasi.","Menghindarinya karena merasa iri.","Membandingkan prestasimu dengan prestasinya."],c:2,exp:"Pilihan C paling tepat. Perasaan iri dapat muncul pada manusia, tetapi jangan dipelihara menjadi hasad. Kita dapat mengubahnya menjadi motivasi untuk memperbaiki diri."},
+{topic:"👂 TANTANGAN 5 — MENCERITAKAN AMAL",q:"Kamu rutin membantu membersihkan masjid sekolah. Suatu hari temanmu bertanya mengapa kamu sering berada di masjid. Kamu ingin menjawab dengan menceritakan semua kebaikan yang telah kamu lakukan. Apa yang sebaiknya kamu lakukan?",a:["Menceritakan semuanya agar teman mengetahui kebaikanmu.","Menyebutkan semua bantuan yang pernah diberikan.","Menjawab seperlunya tanpa menjadikan amal sebagai bahan untuk mencari pujian.","Mengatakan bahwa kamu lebih rajin daripada teman-temanmu.","Memposting semua kegiatan tersebut di media sosial."],c:2,exp:"Pilihan C paling tepat. Kita perlu menjaga amal dari keinginan mendapatkan pujian. Ikhlas berarti berusaha melakukan kebaikan karena Allah Swt."}
+];
+let current=0,score=0,answered=false;
+function hide(id){document.getElementById(id).classList.add("hidden")}function show(id){document.getElementById(id).classList.remove("hidden")}
+function startGame(){hide("start");hide("result");show("game");current=0;score=0;render()}
+function render(){answered=false;const x=questions[current];document.getElementById("num").textContent=current+1;document.getElementById("score").textContent=score;document.getElementById("bar").style.width=(current/questions.length*100)+"%";document.getElementById("topic").textContent=x.topic;document.getElementById("question").textContent=x.q;const box=document.getElementById("options");box.innerHTML="";x.a.forEach((text,i)=>{const b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+i)+". "+text;b.onclick=()=>answer(i,b);box.appendChild(b)});document.getElementById("feedback").className="feedback hidden";document.getElementById("next").classList.add("hidden")}
+function answer(i,btn){if(answered)return;answered=true;const x=questions[current];document.querySelectorAll(".option").forEach((b,idx)=>{b.disabled=true;if(idx===x.c)b.classList.add("correct")});const fb=document.getElementById("feedback");if(i===x.c){score++;fb.className="feedback good";fb.innerHTML="<b>✅ Tepat!</b><br>"+x.exp}else{btn.classList.add("wrong");fb.className="feedback bad";fb.innerHTML="<b>❌ Belum tepat.</b><br>"+x.exp}document.getElementById("score").textContent=score;document.getElementById("next").classList.remove("hidden")}
+function nextQuestion(){current++;if(current>=questions.length)finish();else render()}
+function finish(){hide("game");show("result");document.getElementById("finalScore").textContent=score;let t,m;if(score===5){t="🏆 Penjaga Hati Teladan";m="Luar biasa! Kamu mampu memilih sikap yang tepat dalam berbagai situasi."}else if(score>=4){t="🥇 Penjaga Hati Hebat";m="Bagus sekali! Pemahamanmu sudah sangat baik."}else if(score>=3){t="🥈 Terus Berlatih";m="Kamu sudah cukup baik. Perhatikan kembali pembahasan pada situasi yang masih keliru."}else{t="🌱 Saatnya Belajar Lagi";m="Tidak apa-apa. Gunakan pembahasan untuk mengenali sikap yang tepat, lalu coba lagi."}document.getElementById("resultTitle").textContent=t;document.getElementById("resultMessage").textContent=m}
+</script>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misi Jaga Hati — PAI SMK</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --green:#246b45;--green2:#3d8b5d;--cream:#fbf8ef;--ink:#25342c;
+  --muted:#68766e;--card:#fff;--line:#e1e9e3;--gold:#c7922f;
+}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#edf7f0,#faf5e8);color:var(--ink);min-height:100vh}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:900px;margin:auto;padding:18px 14px 45px}
+.card{background:var(--card);border-radius:24px;padding:28px;box-shadow:0 12px 35px rgba(32,55,42,.10);margin-top:16px}
+.hero{text-align:center;padding:38px 25px}
+.logo{font-size:72px;margin-bottom:8px}
+h1{font-size:34px;margin:8px 0 10px;color:var(--green)}
+h2{margin-top:0;color:var(--green)}
+h3{color:var(--green)}
+p,li{line-height:1.65}
+.tag{display:inline-block;background:#e8f3eb;color:var(--green);font-weight:700;padding:8px 13px;border-radius:999px;font-size:14px}
+.btn{border:0;border-radius:14px;padding:13px 20px;font-weight:700;margin:5px}
+.primary{background:var(--green);color:white}
+.primary:hover{background:#1d5939}
+.secondary{background:#edf2ee;color:var(--ink)}
+.gold{background:#f7ecd2;color:#76551c}
+.hidden{display:none!important}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}
+.step{background:#f5f8f5;border:1px solid var(--line);padding:12px;border-radius:15px;text-align:center;font-size:13px}
+.step b{display:block;font-size:22px;margin-bottom:5px}
+.tip{background:#f3f8f4;border-left:5px solid var(--green2);padding:14px 16px;border-radius:12px;margin:15px 0}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rule{background:#f7f9f7;border-radius:16px;padding:15px;text-align:center}
+.rule .ico{font-size:28px}
+.topbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:15px}
+.stat{background:#f3f7f4;border:1px solid var(--line);border-radius:15px;padding:11px;text-align:center;font-size:14px}
+.stat strong{display:block;font-size:20px;margin-top:3px}
+.progress{height:10px;background:#e6ece8;border-radius:99px;overflow:hidden;margin:12px 0 23px}
+.bar{height:100%;background:var(--green2);width:0;transition:.35s}
+.option{width:100%;text-align:left;background:#f6f8f6;border:2px solid transparent;border-radius:14px;padding:15px 16px;margin:7px 0;color:var(--ink)}
+.option:hover:not(:disabled){border-color:#78a989;background:#eef7f0}
+.option:disabled{cursor:default}
+.option.correct{background:#e7f5ea;border-color:#3d9658}
+.option.wrong{background:#fdeaea;border-color:#d45d5d}
+.feedback{padding:15px;border-radius:14px;margin-top:14px;line-height:1.55}
+.good{background:#eaf7ed}.bad{background:#fff0f0}
+.levelbar{display:flex;gap:7px;margin:0 0 18px}
+.level{flex:1;height:8px;background:#e5ebe7;border-radius:99px}
+.level.on{background:var(--green2)}
+.small{font-size:13px;color:var(--muted)}
+.result{text-align:center}
+.score{font-size:54px;font-weight:800;color:var(--green);margin:6px}
+.badge{font-size:70px}
+.reflection{background:#fffaf0;border:1px solid #eee1c4;padding:18px;border-radius:16px}
+.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:650px){
+ .card{padding:20px}.hero{padding:28px 17px}h1{font-size:28px}
+ .steps,.rules{grid-template-columns:1fr 1fr}.topbar{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="intro" class="card hero">
+  <div class="logo">❤️</div>
+  <span class="tag">PAI SMK • Kelas X • Semester 1</span>
+  <h1>MISI JAGA HATI</h1>
+  <p><b>Kenali perilakunya, pahami bahayanya, dan latih dirimu untuk menghindarinya.</b></p>
+  <p>Dalam misi ini kamu akan menghadapi situasi sehari-hari tentang <b>berfoya-foya, riya, sum'ah, takabbur, dan hasad</b>.</p>
+
+  <div class="steps">
+    <div class="step"><b>1️⃣</b>Pelajari</div>
+    <div class="step"><b>2️⃣</b>Hadapi</div>
+    <div class="step"><b>3️⃣</b>Jawab</div>
+    <div class="step"><b>4️⃣</b>Refleksi</div>
+  </div>
+
+  <h3>🎮 Aturan Misi</h3>
+  <div class="rules">
+    <div class="rule"><div class="ico">⭐</div><b>+100</b><br>jawaban benar</div>
+    <div class="rule"><div class="ico">❤️</div><b>3 nyawa</b><br>tersedia</div>
+    <div class="rule"><div class="ico">📚</div><b>10 soal</b><br>dengan pembahasan</div>
+  </div>
+
+  <div class="tip"><b>💡 Ingat:</b> Tujuan utama permainan ini bukan mendapatkan skor tertinggi, tetapi belajar mengenali dan menghindari sifat tercela.</div>
+  <button class="btn primary" onclick="showGuide()">📖 PETUNJUK PERMAINAN</button>
+  <button class="btn gold" onclick="startGame()">🚀 MULAI MISI</button>
+</section>
+
+<section id="guide" class="card hidden">
+  <h2>📖 Petunjuk Permainan</h2>
+  <ol>
+    <li>Baca setiap situasi dengan teliti.</li>
+    <li>Pilih <b>satu jawaban paling tepat</b> dari pilihan A–E.</li>
+    <li>Jawaban benar mendapat <b>100 poin</b>.</li>
+    <li>Jawaban salah mengurangi <b>1 nyawa</b>, tetapi kamu tetap dapat melanjutkan permainan.</li>
+    <li>Setelah menjawab, baca pembahasan. Bagian ini adalah inti belajarnya.</li>
+    <li>Di akhir permainan kamu mendapatkan <b>badge/predikat</b> berdasarkan skor.</li>
+  </ol>
+  <div class="tip"><b>🌱 Sikap belajar:</b> Jika salah, jangan kecewa. Baca pembahasannya, pahami alasannya, lalu coba lagi.</div>
+  <button class="btn secondary" onclick="showIntro()">⬅️ KEMBALI</button>
+  <button class="btn primary" onclick="startGame()">🚀 MULAI SEKARANG</button>
+</section>
+
+<section id="game" class="card hidden">
+  <div class="topbar">
+    <div class="stat">⭐ Skor<strong id="score">0</strong></div>
+    <div class="stat">❤️ Nyawa<strong id="lives">❤️❤️❤️</strong></div>
+    <div class="stat">🎯 Soal<strong><span id="num">1</span>/10</strong></div>
+  </div>
+  <div class="levelbar" id="levelbar"></div>
+  <div class="progress"><div id="bar" class="bar"></div></div>
+  <p class="small" id="category"></p>
+  <h2 id="question"></h2>
+  <p class="small"><b>Pilih satu jawaban yang paling tepat.</b></p>
+  <div id="options"></div>
+  <div id="feedback" class="feedback hidden"></div>
+  <div style="text-align:right;margin-top:15px">
+    <button id="next" class="btn primary hidden" onclick="nextQuestion()">➡️ LANJUT</button>
+  </div>
+</section>
+
+<section id="result" class="card result hidden">
+  <div class="badge" id="badge">🏆</div>
+  <h1>MISI SELESAI!</h1>
+  <p>Skor akhir kamu:</p>
+  <div id="finalScore" class="score">0</div>
+  <h2 id="rank"></h2>
+  <p id="message"></p>
+  <div class="reflection">
+    <h3>💭 Pesan untuk Dirimu</h3>
+    <p>Menjaga hati adalah proses. Tidak harus langsung sempurna. Yang penting adalah mau mengenali kesalahan, memperbaiki niat, dan membiasakan diri berbuat baik.</p>
+  </div>
+  <h3>🧠 Ringkasan Misi</h3>
+  <p style="text-align:left">
+    💰 <b>Berfoya-foya:</b> gunakan harta secara bijak dan tidak berlebihan.<br>
+    📱 <b>Riya:</b> jaga amal agar tidak bertujuan mencari pujian manusia.<br>
+    👂 <b>Sum'ah:</b> jangan mencari pujian dengan membuat kebaikan kita sengaja didengar orang lain.<br>
+    👑 <b>Takabbur:</b> jangan merasa lebih tinggi dan merendahkan orang lain.<br>
+    💚 <b>Hasad:</b> jangan berharap nikmat orang lain hilang; jadikan keberhasilan sebagai motivasi.
+  </p>
+  <button class="btn gold" onclick="restart()">🔄 MAIN LAGI</button>
+  <button class="btn secondary" onclick="showIntro()">🏠 KEMBALI KE AWAL</button>
+</section>
+
+<div class="footer">Media pembelajaran PAI SMK • Misi Jaga Hati</div>
+</div>
+
+<script>
+const questions = [
+ {cat:"LEVEL 1 • BERFOYA-FOYA",q:"Kamu memiliki uang Rp100.000. Kamu membutuhkan alat tulis seharga Rp30.000. Di perjalanan kamu melihat barang yang sedang tren seharga Rp70.000. Apa pilihan yang paling bijak?",a:["Membeli barang tren karena sedang populer","Meminjam uang untuk membeli barang tersebut","Membeli kebutuhan dan menyimpan sisanya","Meminta uang tambahan kepada orang tua","Membeli barang tren lalu mengurangi kebutuhan lain"],c:2,exp:"Mendahulukan kebutuhan, menghindari pemborosan, dan menggunakan harta secara bijak merupakan sikap yang lebih baik."},
+ {cat:"LEVEL 2 • RIYA",q:"Ahmad memberikan bantuan kepada korban bencana kemudian mengunggahnya ke media sosial. Kesimpulan yang paling tepat adalah...",a:["Pasti riya karena kebaikannya diketahui orang lain","Pasti sum'ah karena ia menggunakan media sosial","Belum tentu riya atau sum'ah karena niat perlu diperhatikan","Pasti salah karena amal tidak boleh diketahui siapa pun","Pasti benar karena semua kebaikan harus dipublikasikan"],c:2,exp:"Riya berkaitan dengan niat. Kita tidak boleh memastikan niat seseorang hanya dari tindakan yang terlihat."},
+ {cat:"LEVEL 3 • TAKABBUR",q:"\"Nilai saya paling tinggi di kelas. Saya tidak perlu mendengarkan pendapat kalian.\" Perilaku tersebut paling dekat dengan...",a:["Tawadhu","Takabbur","Ikhlas","Syukur","Qanaah"],c:1,exp:"Takabbur adalah sikap merasa diri lebih tinggi atau lebih baik daripada orang lain sehingga merendahkan mereka."},
+ {cat:"LEVEL 4 • HASAD",q:"Siti mendapatkan juara satu. Kamu merasa tidak senang dan berharap pada perlombaan berikutnya Siti gagal. Sikap tersebut menunjukkan...",a:["Hasad","Tawadhu","Ikhlas","Qanaah","Sabar"],c:0,exp:"Hasad adalah merasa tidak senang terhadap nikmat orang lain disertai keinginan agar nikmat tersebut hilang."},
+ {cat:"LEVEL 5 • SUM'AH",q:"\"Teman-teman, kalian tahu kan saya kemarin menyumbangkan uang paling banyak untuk kegiatan sosial?\" Jika ucapan tersebut bertujuan mendapatkan pujian, perilaku tersebut termasuk...",a:["Syukur","Sum'ah","Tawadhu","Qanaah","Sabar"],c:1,exp:"Sum'ah berkaitan dengan keinginan agar amal atau kebaikan diketahui dan didengar orang lain untuk mendapatkan pujian."},
+ {cat:"LEVEL 6 • PILIH SIKAP TERBAIK",q:"Temanmu mendapatkan HP baru dari orang tuanya. Apa sikap terbaik?",a:["Berharap HP-nya cepat rusak","Mengejeknya karena dianggap pamer","Bersyukur atas nikmat sendiri dan ikut senang","Membandingkan HP tersebut dengan milikmu","Mencari cara agar teman tersebut kehilangan HP-nya"],c:2,exp:"Sikap yang baik adalah bersyukur atas nikmat sendiri dan ikut senang atas kebaikan yang diterima orang lain."},
+ {cat:"LEVEL 7 • DETEKTIF HATI",q:"Perhatikan pernyataan: \"Saya akan berusaha memberikan yang terbaik.\" Sikap ini berbeda dari takabbur karena...",a:["Selalu merasa paling hebat","Menunjukkan usaha tanpa merendahkan orang lain","Menganggap orang lain tidak penting","Ingin selalu dipuji","Menolak semua nasihat dari orang lain"],c:1,exp:"Percaya diri dapat disertai usaha dan penghargaan terhadap orang lain. Takabbur justru merendahkan orang lain."},
+ {cat:"LEVEL 8 • BENAR ATAU SALAH",q:"Benar atau salah: \"Semua orang yang memamerkan kebaikan di media sosial pasti riya.\"",a:["Benar, karena semua publikasi kebaikan adalah riya","Salah, karena riya berkaitan dengan niat","Benar, karena media sosial tidak boleh digunakan","Salah, karena semua kebaikan harus dipublikasikan","Benar, kecuali jika mendapat banyak like"],c:1,exp:"Salah. Riya berkaitan dengan niat. Kita tidak boleh sembarangan memastikan niat seseorang hanya berdasarkan apa yang terlihat."},
+ {cat:"LEVEL 9 • UJIAN SIKAP",q:"Kamu mengetahui temanmu mendapatkan nilai lebih tinggi darimu. Dalam hati kamu merasa iri. Apa tindakan yang paling baik?",a:["Berharap nilainya turun","Membicarakan keburukannya kepada teman lain","Mengucapkan selamat dan belajar lebih giat","Mengajak teman lain menjauhinya","Mencari kesalahan agar nilainya dipermasalahkan"],c:2,exp:"Keberhasilan orang lain dapat dijadikan motivasi. Kita dapat mengucapkan selamat dan memperbaiki usaha kita sendiri."},
+ {cat:"LEVEL 10 • BOSS QUESTION 👑",q:"Rafi suka menceritakan kebaikannya agar dipuji, tidak senang ketika teman lebih berhasil, dan merasa dirinya paling hebat. Sifat yang paling sesuai adalah...",a:["Riya/sum'ah, hasad, dan takabbur","Syukur, tawadhu, dan qanaah","Ikhlas, sabar, dan syukur","Tawadhu, qanaah, dan ikhlas","Hemat, sabar, dan tawadhu"],c:0,exp:"Cerita tersebut menunjukkan keinginan mencari pujian (riya/sum'ah), tidak senang atas keberhasilan orang lain (hasad), dan merasa lebih hebat (takabbur)."}
+];
+
+let current=0,score=0,lives=3,answered=false;
+
+function hideAll(){["intro","guide","game","result"].forEach(id=>document.getElementById(id).classList.add("hidden"))}
+function showIntro(){hideAll();document.getElementById("intro").classList.remove("hidden")}
+function showGuide(){hideAll();document.getElementById("guide").classList.remove("hidden")}
+function startGame(){
+ hideAll();document.getElementById("game").classList.remove("hidden");
+ current=0;score=0;lives=3;renderQuestion();
+}
+function renderQuestion(){
+ answered=false;const x=questions[current];
+ document.getElementById("score").textContent=score;
+ document.getElementById("lives").textContent="❤️".repeat(lives)+"♡".repeat(3-lives);
+ document.getElementById("num").textContent=current+1;
+ document.getElementById("bar").style.width=(current/questions.length*100)+"%";
+ document.getElementById("category").textContent=x.cat;
+ document.getElementById("question").textContent=x.q;
+ const lb=document.getElementById("levelbar");lb.innerHTML="";
+ for(let i=0;i<5;i++){const d=document.createElement("div");d.className="level"+(i<=Math.floor(current/2)?" on":"");lb.appendChild(d)}
+ const box=document.getElementById("options");box.innerHTML="";
+ x.a.forEach((text,i)=>{
+  const b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+i)+". "+text;
+  b.onclick=()=>choose(i,b);box.appendChild(b);
+ });
+ document.getElementById("feedback").className="feedback hidden";
+ document.getElementById("next").classList.add("hidden");
+}
+function choose(i,btn){
+ if(answered)return;answered=true;const x=questions[current];
+ document.querySelectorAll(".option").forEach((b,idx)=>{b.disabled=true;if(idx===x.c)b.classList.add("correct")});
+ const fb=document.getElementById("feedback");
+ if(i===x.c){score+=100;fb.className="feedback good";fb.innerHTML="<b>✅ BENAR! +100 poin</b><br>"+x.exp}
+ else{lives=Math.max(0,lives-1);btn.classList.add("wrong");fb.className="feedback bad";fb.innerHTML="<b>❌ Belum tepat.</b><br>"+x.exp}
+ document.getElementById("score").textContent=score;
+ document.getElementById("lives").textContent="❤️".repeat(lives)+"♡".repeat(3-lives);
+ document.getElementById("next").classList.remove("hidden");
+}
+function nextQuestion(){current++;if(current>=questions.length)finish();else renderQuestion()}
+function finish(){
+ hideAll();document.getElementById("result").classList.remove("hidden");
+ document.getElementById("finalScore").textContent=score;
+ let rank,msg,badge;
+ if(score>=900){badge="🏆";rank="Penjaga Hati Utama";msg="Luar biasa! Pemahamanmu sangat baik. Pertahankan dan praktikkan dalam kehidupan sehari-hari."}
+ else if(score>=700){badge="🥇";rank="Penjaga Hati Hebat";msg="Hebat! Pemahamanmu sudah baik. Terus latih kepekaan terhadap perilaku sehari-hari."}
+ else if(score>=500){badge="🥈";rank="Penjaga Hati Muda";msg="Bagus! Kamu sudah memahami sebagian materi. Ulangi bagian yang masih membingungkan."}
+ else{badge="🌱";rank="Masih Berlatih";msg="Tidak apa-apa. Baca kembali pembahasan setiap soal, lalu coba lagi."}
+ document.getElementById("badge").textContent=badge;
+ document.getElementById("rank").textContent=rank;
+ document.getElementById("message").textContent=msg;
+}
+function restart(){startGame()}
+</script>
+</body>
+</html>
